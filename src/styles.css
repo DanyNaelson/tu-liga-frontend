@@ -1,1 +1,73 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+    --dark-primary-color: #00796B;
+    --light-primary-color: #B2DFDB;
+    --primary-color: #009688;
+    --text-icons: #FFFFFF;
+    --accent-color: #448AFF;
+    --primary-text: #212121;
+    --secondary-text: #757575;
+    --divider-color: #BDBDBD;
+    --background-body: #FFFFFF;
+}
+
+body {
+    background-color: var(--background-body);
+    color: var(--primary-text) !important;
+}
+
+.bg-primary-league {
+    background-color: var(--primary-color) !important;
+}
+
+.border-no-radius {
+    border-radius: 0 !important;
+}
+
+.col-unfilled {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+.slide-text {
+    color: var(--text-icons);
+}
+
+/* Navbar */
+
+.navbar-league {
+    background-color: var(--primary-color);
+}
+
+.navbar-league a {
+    color: var(--text-icons);
+}
+
+/* Animaciones */
+
+.animated {
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+.fast {
+    -webkit-animation-duration: 0.4s;
+    animation-duration: 0.4s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.fadeIn {
+    animation-name: fadeIn;
+}
