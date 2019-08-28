@@ -1,0 +1,109 @@
+<form (ngSubmit)="onSubmit(registerForm)"
+  #registerForm="ngForm"
+>
+  <div class="form-row">
+    <div class="col-12">
+      <label>Nombre</label>
+      <input
+        type="text"
+        name="first_name"
+        class="form-control"
+        [ngClass]="{
+          'is-valid': registerForm.submitted && !registerForm.controls['first_name'].errors,
+          'is-invalid': registerForm.submitted && registerForm.controls['first_name'].errors
+        }"
+        id="validationServer01"
+        placeholder="Nombre"
+        [(ngModel)]="user.first_name"
+        required
+      >
+      <div *ngIf="registerForm.submitted && registerForm.controls['first_name'].errors" 
+        class="invalid-feedback animated fadeIn"
+      >
+        {{ registerForm.controls['first_name'].errors.required && 'Este campo es obligatorio' }}
+      </div>
+    </div>
+    <div class="col-12">
+      <label>Apellidos</label>
+      <input
+        type="text"
+        name="last_name"
+        class="form-control"
+        [ngClass]="{
+          'is-valid': registerForm.submitted && !registerForm.controls['last_name'].errors,
+          'is-invalid': registerForm.submitted && registerForm.controls['last_name'].errors
+        }"
+        id="validationServer02"
+        placeholder="Apellidos"
+        [(ngModel)]="user.last_name"
+        required
+      >
+      <div *ngIf="registerForm.submitted && registerForm.controls['last_name'].errors" 
+        class="invalid-feedback animated fadeIn"
+      >
+        {{ registerForm.controls['last_name'].errors.required && 'Este campo es obligatorio' }}
+      </div>
+    </div>
+    <div class="col-12">
+      <label>Correo electrónico</label>
+      <input
+        type="text"
+        name="email"
+        class="form-control"
+        [ngClass]="{
+          'is-valid': registerForm.submitted && !registerForm.controls['email'].errors,
+          'is-invalid': registerForm.submitted && registerForm.controls['email'].errors
+        }"
+        id="validationServer03"
+        placeholder="Correo electrónico"
+        [(ngModel)]="user.email"
+        email
+        required
+      >
+      <div *ngIf="registerForm.submitted && registerForm.controls['email'].errors" 
+        class="invalid-feedback animated fadeIn"
+      >
+        {{ registerForm.controls['email'].errors.required && 'Este campo es obligatorio' }}
+        {{ registerForm.controls['email'].errors.email && 'Este campo debe ser un correo electrónico' }}
+      </div>
+    </div>
+    <div class="col-12">
+      <label>Contraseña</label>
+      <input
+        type="password"
+        name="password"
+        class="form-control"
+        [ngClass]="{
+          'is-valid': registerForm.submitted && !registerForm.controls['password'].errors,
+          'is-invalid': registerForm.submitted && registerForm.controls['password'].errors
+        }"
+        id="validationServer04"
+        placeholder="Contraseña"
+        [(ngModel)]="user.password"
+        minlength="8"
+        required
+      >
+      <div *ngIf="registerForm.submitted && registerForm.controls['password'].errors" 
+        class="invalid-feedback animated fadeIn"
+      >
+        {{ registerForm.controls['password'].errors.required && 'Este campo es obligatorio' }}
+        {{ registerForm.controls['password'].errors.minlength && 'Este campo debe contener por lo menos ' + registerForm.controls['password'].errors.minlength.requiredLength + ' caracteres' }}
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="form-check">
+      <input
+        class="form-check-input"
+        type="checkbox"
+        name="remember_me"
+        id="gridCheck"
+        [(ngModel)]="remember_me"
+      >
+      <label class="form-check-label" for="gridCheck">
+        Recordar mi usuario
+      </label>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary">Registrar</button>
+</form>
